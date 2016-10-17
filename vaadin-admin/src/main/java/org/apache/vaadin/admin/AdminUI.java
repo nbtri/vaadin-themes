@@ -1,7 +1,5 @@
 package org.apache.vaadin.admin;
 
-import javax.servlet.annotation.WebServlet;
-
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
@@ -9,8 +7,10 @@ import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
-import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import org.apache.vaadin.ui.layout.AdminLayoutUI;
+
+import javax.servlet.annotation.WebServlet;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -20,26 +20,26 @@ import com.vaadin.ui.VerticalLayout;
  * overridden to add component to the user interface and initialize non-component functionality.
  */
 @Theme("admintheme")
-public class AdminUI extends UI {
+public class AdminUI extends AdminLayoutUI {
 
     @Override
-    protected void init(VaadinRequest vaadinRequest) {
+    protected VerticalLayout drawMainLayout(VaadinRequest vaadinRequest) {
         final VerticalLayout layout = new VerticalLayout();
-        
+
         final TextField name = new TextField();
         name.setCaption("Type your name here:");
 
         Button button = new Button("Click Me");
         button.addClickListener( e -> {
-            layout.addComponent(new Label("Thanks " + name.getValue() 
+            layout.addComponent(new Label("Thanks " + name.getValue()
                     + ", it works!"));
         });
-        
+
         layout.addComponents(name, button);
-        layout.setMargin(true);
-        layout.setSpacing(true);
-        
-        setContent(layout);
+//        layout.setMargin(true);
+//        layout.setSpacing(true);
+
+        return layout;
     }
 
     @WebServlet(urlPatterns = "/*", name = "AdminUIServlet", asyncSupported = true)
