@@ -2,13 +2,14 @@ package org.apache.vaadin.admin;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
-import org.apache.vaadin.admin.ui.helper.AdminLayoutUI;
+import org.apache.vaadin.admin.ui.layout.AdminLayoutUI;
 
 import javax.servlet.annotation.WebServlet;
 

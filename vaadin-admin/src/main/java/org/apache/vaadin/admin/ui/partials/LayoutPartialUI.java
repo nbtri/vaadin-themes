@@ -1,5 +1,6 @@
-package org.apache.vaadin.admin.ui.helper;
+package org.apache.vaadin.admin.ui.partials;
 
+import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Layout;
 
@@ -8,4 +9,6 @@ import com.vaadin.ui.Layout;
  */
 public interface LayoutPartialUI {
     Layout draw(VaadinRequest vaadinRequest);
+
+    Layout draw(VaadinRequest vaadinRequest, Navigator navigator);
 }

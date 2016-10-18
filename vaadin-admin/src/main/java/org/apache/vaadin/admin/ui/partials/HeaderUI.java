@@ -1,8 +1,11 @@
-package org.apache.vaadin.admin.ui.helper;
+package org.apache.vaadin.admin.ui.partials;
 
+import com.vaadin.navigator.Navigator;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.*;
+import org.apache.vaadin.admin.ui.helper.AdminUIDefaultConfiguration;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * Created by tringuyen on 10/17/16.
@@ -30,5 +33,10 @@ public class HeaderUI implements LayoutPartialUI {
 //        header.addComponent(group);
 
         return header;
+    }
+
+    @Override
+    public Layout draw(VaadinRequest vaadinRequest, Navigator navigator) {
+        throw new NotImplementedException();
     }
 }

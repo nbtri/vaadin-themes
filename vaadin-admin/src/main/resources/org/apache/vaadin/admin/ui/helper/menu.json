@@ -2,13 +2,14 @@
   "menu": {
     "items": [
       {
-        "text": "Menu A",
-        "href": "/admin/a",
-        "target": "_blank"
+        "text": "Dashboard",
+        "viewName": "rootView",
+        "viewClass": ""
       },
       {
-        "text": "Menu B",
-        "href": "/admin/b"
+        "text": "Simple Grid",
+        "viewName": "gridView",
+        "viewClass": "org.apache.vaadin.admin.ui.view.SimpleGridView"
       }
     ]
   }

@@ -1,6 +1,7 @@
 package org.apache.vaadin.admin.ui.helper;
 
 import com.sun.media.jfxmedia.logging.Logger;
+import com.vaadin.navigator.Navigator;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.Link;
@@ -17,7 +18,7 @@ import java.net.URL;
  * Created by tringuyen on 10/17/16.
  */
 public class AdminMenuLoader {
-    public static void loadMenu(Layout layout) {
+    public static void loadMenu(Layout layout, Navigator navigator) {
         try {
             JSONObject json = loadFile();
 
@@ -30,6 +31,7 @@ public class AdminMenuLoader {
                         getText(menuItem, "href", ""),
                         getText(menu, "target", "_blank")));
             });
+
         } catch (IOException e) {
             Logger.logMsg(Logger.WARNING, "Cannot find menu.json file.");
         } catch (ParseException e) {
