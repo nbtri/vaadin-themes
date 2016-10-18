@@ -3,13 +3,11 @@
     "items": [
       {
         "text": "Dashboard",
-        "viewName": "rootView",
-        "viewClass": ""
+        "viewName": "rootView"
       },
       {
         "text": "Simple Grid",
-        "viewName": "gridView",
-        "viewClass": "org.apache.vaadin.admin.ui.view.SimpleGridView"
+        "viewName": "gridView"
       }
     ]
   }

@@ -3,6 +3,7 @@ package org.apache.vaadin.admin.ui.helper;
 import com.sun.media.jfxmedia.logging.Logger;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.ExternalResource;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.Link;
 import org.json.simple.JSONArray;
@@ -29,7 +30,7 @@ public class AdminMenuLoader {
                 JSONObject menuItem = (JSONObject) item;
                 layout.addComponent(buildLink(getText(menuItem, "text", ""),
                         getText(menuItem, "href", ""),
-                        getText(menu, "target", "_blank")));
+                        getText(menuItem, "target", "_blank")));
             });
 
         } catch (IOException e) {
@@ -46,6 +47,32 @@ public class AdminMenuLoader {
         Object obj = parser.parse(new FileReader(url.getPath()));
 
         return (JSONObject) obj;
+    }
+
+    private static void buildLink(JSONObject menuItem, Layout container, Navigator navigator) {
+        final int EXTERNAL_LINK = 1;
+        final int NAVIGATOR_VIEW = 0;
+
+        int type = menuItem.containsKey("href") ? 1 : 0;
+
+        switch (type) {
+            case EXTERNAL_LINK:
+                String label = getText(menuItem, "text", "");
+                String href = getText(menuItem, "href", "");
+                String target = getText(menuItem, "target", "_blank");
+                Link link = buildLink(label, href, target);
+                container.addComponent(link);
+                break;
+            case NAVIGATOR_VIEW:
+                final String viewName = getText(menuItem, "viewName", "");
+                Button button = new Button(viewName);
+                button.setStyleName("link");
+                button.addClickListener(event -> {
+                    navigator.navigateTo(viewName);
+                });
+                break;
+
+        }
     }
 
     private static Link buildLink(String label, String href, String target) {
