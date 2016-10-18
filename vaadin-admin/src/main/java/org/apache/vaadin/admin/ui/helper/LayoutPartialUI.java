@@ -1,4 +1,4 @@
-package org.apache.vaadin.ui.layout;
+package org.apache.vaadin.admin.ui.helper;
 
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Layout;

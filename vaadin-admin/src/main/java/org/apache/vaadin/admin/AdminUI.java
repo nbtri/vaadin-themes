@@ -8,7 +8,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
-import org.apache.vaadin.ui.layout.AdminLayoutUI;
+import org.apache.vaadin.admin.ui.helper.AdminLayoutUI;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -30,14 +30,12 @@ public class AdminUI extends AdminLayoutUI {
         name.setCaption("Type your name here:");
 
         Button button = new Button("Click Me");
-        button.addClickListener( e -> {
+        button.addClickListener(e -> {
             layout.addComponent(new Label("Thanks " + name.getValue()
                     + ", it works!"));
         });
 
         layout.addComponents(name, button);
-//        layout.setMargin(true);
-//        layout.setSpacing(true);
 
         return layout;
     }

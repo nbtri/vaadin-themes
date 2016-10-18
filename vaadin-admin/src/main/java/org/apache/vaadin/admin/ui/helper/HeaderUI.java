@@ -1,10 +1,8 @@
-package org.apache.vaadin.ui.layout;
+package org.apache.vaadin.admin.ui.helper;
 
 import com.vaadin.server.ExternalResource;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.*;
-import com.vaadin.ui.themes.ValoTheme;
-import org.apache.vaadin.admin.ui.helper.AdminUIDefaultConfiguration;
 
 /**
  * Created by tringuyen on 10/17/16.

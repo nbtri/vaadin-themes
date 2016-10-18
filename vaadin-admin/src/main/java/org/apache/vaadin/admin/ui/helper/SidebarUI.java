@@ -1,12 +1,10 @@
-package org.apache.vaadin.ui.layout;
+package org.apache.vaadin.admin.ui.helper;
 
 import com.vaadin.server.ExternalResource;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.Link;
 import com.vaadin.ui.VerticalLayout;
-import org.apache.vaadin.admin.ui.helper.AdminUIDefaultConfiguration;
 
 /**
  * Created by tringuyen on 10/17/16.
@@ -17,8 +15,9 @@ public class SidebarUI implements LayoutPartialUI {
         VerticalLayout sidebar = new VerticalLayout();
         sidebar.setWidth(AdminUIDefaultConfiguration.DEFAULT_SIDEBAR_WIDTH);
 
-        sidebar.addComponent(buildLink("Manage users", "/admin/ui/users", "_blank"));
-        sidebar.addComponent(buildLink("Manage RFOs", "/admin/ui/rfos", "_blank"));
+//        sidebar.addComponent(buildLink("Menu 1", "/admin/ui/users", "_blank"));
+//        sidebar.addComponent(buildLink("Menu 2", "/admin/ui/rfos", "_blank"));
+        AdminMenuLoader.loadMenu(sidebar);
 
         return sidebar;
     }
