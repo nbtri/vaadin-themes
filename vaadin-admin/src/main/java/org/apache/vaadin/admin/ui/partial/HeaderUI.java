@@ -1,4 +1,4 @@
-package org.apache.vaadin.admin.ui.partials;
+package org.apache.vaadin.admin.ui.partial;
 
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.ExternalResource;

@@ -7,9 +7,10 @@ import com.vaadin.ui.Layout;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
-import org.apache.vaadin.admin.ui.partials.FooterUI;
-import org.apache.vaadin.admin.ui.partials.HeaderUI;
-import org.apache.vaadin.admin.ui.partials.SidebarUI;
+import org.apache.vaadin.admin.ui.partial.FooterUI;
+import org.apache.vaadin.admin.ui.partial.HeaderUI;
+import org.apache.vaadin.admin.ui.partial.SidebarUI;
+import org.apache.vaadin.admin.ui.view.SimpleGridView;
 
 /**
  * Created by tringuyen on 10/17/16.
@@ -22,21 +23,23 @@ public abstract class AdminLayoutUI extends UI {
     protected FooterUI footerUI = new FooterUI();
     protected SidebarUI sidebarUI = new SidebarUI();
 
-    protected abstract VerticalLayout drawMainLayout(VaadinRequest vaadinRequest);
+//    protected abstract VerticalLayout drawMainLayout(VaadinRequest vaadinRequest);
 
     @Override
     protected void init(VaadinRequest request) {
         navigator = new Navigator(this, this);
+
+        navigator.addView("", new SimpleGridView());
+        navigator.addView("gridView", new SimpleGridView());
 
         VerticalLayout content = new VerticalLayout();
 
         HorizontalLayout body = new HorizontalLayout();
 
         Layout sidebar = sidebarUI.draw(request, navigator);
-        Layout main = drawMainLayout(request);
-        body.addComponents(sidebar, main);
+
+        body.addComponents(sidebar);
         body.setExpandRatio(sidebar, 0.3f);
-        body.setExpandRatio(main, 0.7f);
 
         Layout header = headerUI.draw(request);
         Layout footer = footerUI.draw(request);

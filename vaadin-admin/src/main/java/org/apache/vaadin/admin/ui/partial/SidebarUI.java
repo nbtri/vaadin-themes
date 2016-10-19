@@ -1,10 +1,8 @@
-package org.apache.vaadin.admin.ui.partials;
+package org.apache.vaadin.admin.ui.partial;
 
 import com.vaadin.navigator.Navigator;
-import com.vaadin.server.ExternalResource;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Layout;
-import com.vaadin.ui.Link;
 import com.vaadin.ui.VerticalLayout;
 import org.apache.vaadin.admin.ui.helper.AdminMenuLoader;
 import org.apache.vaadin.admin.ui.helper.AdminUIDefaultConfiguration;

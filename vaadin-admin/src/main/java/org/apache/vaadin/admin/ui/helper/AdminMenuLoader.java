@@ -28,9 +28,7 @@ public class AdminMenuLoader {
             JSONArray items = (JSONArray) menu.get("items");
             items.stream().forEach(item -> {
                 JSONObject menuItem = (JSONObject) item;
-                layout.addComponent(buildLink(getText(menuItem, "text", ""),
-                        getText(menuItem, "href", ""),
-                        getText(menuItem, "target", "_blank")));
+                buildLink(menuItem, layout, navigator);
             });
 
         } catch (IOException e) {
