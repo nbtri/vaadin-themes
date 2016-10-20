@@ -1,4 +1,4 @@
-package org.apache.vaadin.admin.ui.partial;
+package org.apache.vaadin.ui.partial;
 
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
@@ -19,6 +19,11 @@ public class FooterUI implements LayoutPartialUI {
 
     @Override
     public Layout draw(VaadinRequest vaadinRequest, Navigator navigator) {
+        throw new NotImplementedException();
+    }
+
+    @Override
+    public Layout draw(Navigator navigator) {
         throw new NotImplementedException();
     }
 }

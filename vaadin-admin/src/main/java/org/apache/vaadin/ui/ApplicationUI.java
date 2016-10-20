@@ -1,15 +1,14 @@
-package org.apache.vaadin.admin;
+package org.apache.vaadin.ui;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.navigator.Navigator;
+import com.vaadin.navigator.View;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
-import com.vaadin.ui.VerticalLayout;
-import org.apache.vaadin.admin.ui.layout.AdminLayoutUI;
+import org.apache.vaadin.ui.layout.MasterLayoutUI;
+import org.apache.vaadin.ui.view.DashboardView;
+import org.apache.vaadin.ui.view.SimpleGridView;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -21,9 +20,19 @@ import javax.servlet.annotation.WebServlet;
  * overridden to add component to the user interface and initialize non-component functionality.
  */
 @Theme("admintheme")
-public class AdminUI extends AdminLayoutUI {
+public class ApplicationUI extends AbstractUI {
+
+    @Override
+    protected View getDefaultView(NavigatorUIContainer container, VaadinRequest request) {
+        return new DashboardView(container, request);
+    }
+
+    @Override
+    protected void addViews(NavigatorUIContainer container, VaadinRequest request) {
+    }
+
     @WebServlet(urlPatterns = "/*", name = "AdminUIServlet", asyncSupported = true)
-    @VaadinServletConfiguration(ui = AdminUI.class, productionMode = false)
+    @VaadinServletConfiguration(ui = ApplicationUI.class, productionMode = false)
     public static class AdminUIServlet extends VaadinServlet {
     }
 }

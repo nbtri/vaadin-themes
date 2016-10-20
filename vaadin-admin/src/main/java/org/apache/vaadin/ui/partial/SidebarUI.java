@@ -1,11 +1,11 @@
-package org.apache.vaadin.admin.ui.partial;
+package org.apache.vaadin.ui.partial;
 
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.VerticalLayout;
-import org.apache.vaadin.admin.ui.helper.AdminMenuLoader;
-import org.apache.vaadin.admin.ui.helper.AdminUIDefaultConfiguration;
+import org.apache.vaadin.ui.helper.AdminMenuLoader;
+import org.apache.vaadin.ui.helper.AdminUIDefaultConfiguration;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
@@ -24,5 +24,10 @@ public class SidebarUI implements LayoutPartialUI {
         AdminMenuLoader.loadMenu(sidebar, navigator);
 
         return sidebar;
+    }
+
+    @Override
+    public Layout draw(Navigator navigator) {
+        throw new NotImplementedException();
     }
 }

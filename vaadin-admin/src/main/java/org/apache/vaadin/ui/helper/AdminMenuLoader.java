@@ -1,4 +1,4 @@
-package org.apache.vaadin.admin.ui.helper;
+package org.apache.vaadin.ui.helper;
 
 import com.sun.media.jfxmedia.logging.Logger;
 import com.vaadin.navigator.Navigator;
@@ -52,10 +52,10 @@ public class AdminMenuLoader {
         final int NAVIGATOR_VIEW = 0;
 
         int type = menuItem.containsKey("href") ? 1 : 0;
+        String label = getText(menuItem, "text", "");
 
         switch (type) {
             case EXTERNAL_LINK:
-                String label = getText(menuItem, "text", "");
                 String href = getText(menuItem, "href", "");
                 String target = getText(menuItem, "target", "_blank");
                 Link link = buildLink(label, href, target);
@@ -63,11 +63,12 @@ public class AdminMenuLoader {
                 break;
             case NAVIGATOR_VIEW:
                 final String viewName = getText(menuItem, "viewName", "");
-                Button button = new Button(viewName);
+                Button button = new Button(label);
                 button.setStyleName("link");
                 button.addClickListener(event -> {
                     navigator.navigateTo(viewName);
                 });
+                container.addComponent(button);
                 break;
 
         }

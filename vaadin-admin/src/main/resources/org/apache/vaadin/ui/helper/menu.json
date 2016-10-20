@@ -2,6 +2,10 @@
   "menu": {
     "items": [
       {
+        "text": "Dashboard",
+        "viewName": "dashboard"
+      },
+      {
         "text": "Simple Grid",
         "viewName": "gridView"
       }
