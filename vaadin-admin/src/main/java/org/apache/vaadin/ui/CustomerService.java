@@ -116,7 +116,7 @@ public class CustomerService {
     /**
      * @return the amount of all customers in the system
      */
-    public synchronized long count() {
+    public synchronized int count() {
         return contacts.size();
     }
 
