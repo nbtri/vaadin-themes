@@ -4,6 +4,7 @@ import com.sun.media.jfxmedia.logging.Logger;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.server.VaadinRequest;
+import com.vaadin.ui.Component;
 import com.vaadin.ui.UI;
 import org.apache.vaadin.ui.helper.DefinedView;
 import org.reflections.Reflections;
