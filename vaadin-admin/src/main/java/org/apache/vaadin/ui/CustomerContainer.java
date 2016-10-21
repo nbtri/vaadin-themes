@@ -9,8 +9,8 @@ import java.util.List;
 /**
  * Created by tringuyen on 10/20/16.
  */
-public class CustomerDatasource extends BeanContainer {
-    public CustomerDatasource(Class type) {
+public class CustomerContainer extends BeanContainer {
+    public CustomerContainer(Class type) {
         super(type);
     }
 

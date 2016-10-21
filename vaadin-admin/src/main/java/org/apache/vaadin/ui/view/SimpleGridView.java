@@ -4,11 +4,8 @@ import com.jensjansson.pagedtable.PagedTable;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.ui.Alignment;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Notification;
-import com.vaadin.ui.VerticalLayout;
-import org.apache.vaadin.ui.CustomerDatasource;
+import com.vaadin.ui.*;
+import org.apache.vaadin.ui.CustomerContainer;
 import org.apache.vaadin.ui.NavigatorUIContainer;
 import org.apache.vaadin.ui.helper.DefinedView;
 import org.apache.vaadin.ui.layout.MasterLayoutUI;
@@ -31,13 +28,7 @@ public class SimpleGridView extends MasterLayoutUI implements View {
     protected void init(NavigatorUIContainer container, VaadinRequest vaadinRequest) {
         mainContent = new VerticalLayout();
 
-        table = createLazyTable();
-        HorizontalLayout tableControls = table.createControls();
-        mainContent.addComponent(table);
-        mainContent.addComponent(tableControls);
-        mainContent.setExpandRatio(table, 1f);
-        mainContent.setExpandRatio(tableControls, 1f);
-        mainContent.setComponentAlignment(tableControls, Alignment.TOP_CENTER);
+        createLazyTable();
 
         addBodyContent(mainContent, 0.7f);
 
@@ -48,15 +39,20 @@ public class SimpleGridView extends MasterLayoutUI implements View {
         Notification.show("Welcome Simple Grid View");
     }
 
-    public PagedTable createLazyTable() {
-        PagedTable pagedTable = new PagedTable("Customers");
-        CustomerDatasource container = new CustomerDatasource(Customer.class);
-        pagedTable.setContainerDataSource(container);
-        pagedTable.setPageLength(10);
-        pagedTable.setImmediate(true);
-        pagedTable.setSelectable(true);
-        pagedTable.setAlwaysRecalculateColumnWidths(true);
-        pagedTable.setWidth("1000px");
-        return pagedTable;
+    public void createLazyTable() {
+        table = new PagedTable("Customers");
+        HorizontalLayout tableControls = table.createControls();
+        CustomerContainer container = new CustomerContainer(Customer.class);
+        table.setPageLength(5);//known issue, wrong page number on UI. https://vaadin.com/forum/#!/thread/246897/246896
+        table.setContainerDataSource(container);
+        table.setImmediate(true);
+        table.setSelectable(true);
+        table.setAlwaysRecalculateColumnWidths(true);
+
+        mainContent.addComponent(table);
+        mainContent.addComponent(tableControls);
+        mainContent.setExpandRatio(table, 1f);
+        mainContent.setExpandRatio(tableControls, 1f);
+        mainContent.setComponentAlignment(tableControls, Alignment.TOP_CENTER);
     }
 }
