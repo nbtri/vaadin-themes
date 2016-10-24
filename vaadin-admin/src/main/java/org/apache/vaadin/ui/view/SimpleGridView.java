@@ -43,7 +43,7 @@ public class SimpleGridView extends MasterLayoutUI implements View {
         table = new PagedTable("Customers");
         HorizontalLayout tableControls = table.createControls();
         CustomerContainer container = new CustomerContainer(Customer.class);
-        table.setPageLength(5);//known issue, wrong page number on UI. https://vaadin.com/forum/#!/thread/246897/246896
+        table.setPageLength(10);
         table.setContainerDataSource(container);
         table.setImmediate(true);
         table.setSelectable(true);

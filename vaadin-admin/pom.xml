@@ -69,11 +69,6 @@
         </dependency>
         <dependency>
             <groupId>org.vaadin.addons</groupId>
-            <artifactId>pagedtable</artifactId>
-            <version>0.6.5</version>
-        </dependency>
-        <dependency>
-            <groupId>org.vaadin.addons</groupId>
             <artifactId>filteringtable</artifactId>
             <version>0.9.15.v7</version>
         </dependency>
