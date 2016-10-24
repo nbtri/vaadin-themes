@@ -6,8 +6,12 @@
         "viewName": "dashboard"
       },
       {
-        "text": "Simple Grid",
+        "text": "Simple Table Grid",
         "viewName": "gridView"
+      },
+      {
+        "text": "Filter Table Grid",
+        "viewName": "filterTableGridView"
       }
     ]
   }

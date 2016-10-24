@@ -16,6 +16,7 @@ import java.util.Set;
  * Created by tringuyen on 10/20/16.
  */
 public abstract class AbstractUI extends UI implements NavigatorUIContainer {
+
     protected Navigator navigator;
 
     protected abstract View getDefaultView(NavigatorUIContainer container, VaadinRequest request);
